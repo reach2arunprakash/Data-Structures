@@ -894,6 +894,51 @@ Technical Interview Questions
 - Given two lists of chars, return the first with removed characters that appear in the second list.
 
 
+## Miscellaneous Topics
+
+#### How does the DNS work
+
+*  Send a request to the browser
+  *  Checks if it knows URL before it asks the OS
+*  After browser and OS check their cache for the IP of URL
+  *  The OS calls the resolver 
+*  Resolver checks its cache
+*  Resolver server is usually your ISP
+  *  All resolvers must know where to locate the root server
+*  Root server knows where to locate the .COM TLD (top level domain)
+*  The root server can tell you where the .COM TLD server is
+*  There are 13 Root servers that sit on top of the DNS hierarchy of TLDs
+  *  root-servers.net to m.root-servers.net
+*  Internet Corporation for Assigned Names and Numbers coordinates most TLDs
+*  When a domain is purchased, the domain registrar reserves the name and tells the TLD the authoritative name server that it’s linked to
+*  The Authoritative name server knows the IP address
+  *  no cached values
+  *  no asking someone else
+  *  only the real deal
+  
+#### Functional Programming
+
+*  Data in functional programs must be immutable
+  *  If you need to manipulate some data in an array, just make a new array with the updated values instead of revising the original array
+*  Functional programs should be stateless
+  *  They should perform every task as if for the first time
+  *  “Ignorant of the past”
+  *  Function will operate only on data passed in as arguments and never on outside values to perform its calculations
+*  When programming in a functional style, you’re always looking for simple, repeatable actions that can be abstracted out into a function
+*  Rules for best practice:
+  *  All of your functions must accept at least one argument
+  *  All of your functions must return data or another function
+  *  No loops!
+*  Since you can’t use loops...use recursion
+*  Reduction
+  *  When you return a single value from an array
+
+**Source:** http://www.smashingmagazine.com/2014/07/dont-be-scared-of-functional-programming/ 
+
+## Helpful Resources
+
+Dynamic Programming
+*  https://www.topcoder.com/community/data-science/data-science-tutorials/dynamic-programming-from-novice-to-advanced/
 
 
 ### Sources

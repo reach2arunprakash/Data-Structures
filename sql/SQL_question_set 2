@@ -1,0 +1,33 @@
+--1. Write query to get all employee detail from EmployeeDetail table.
+SELECT * from EmployeeDetail;
+
+--2. Write query to get only first name column from EmployeeDetail table.
+SELECT firstname from EmployeeDetail;
+
+--3. Write query to get first name in upper case as "First Name".
+SELECT UPPER(firstname) AS First Name From EmployeeDetail;
+
+--4. Write query to get first name in lower case as "First Name".
+SELECT LOWER(firstname) AS First Name From EmployeeDetail;
+
+--5. Write a query for combine first name and last name as "Name", (also include white space between first name and last name)
+SELECT firstname + '' +lastname AS Name From EmployeeDetail;
+
+--6. SELECT employee detail whose name is "Vikas".
+SELECT * From EmployeeDetail WHERE firstname= 'Vikas';
+
+--7. Get all employee detail whoes name start with letter a.
+SELECT * From EmployeeDetail Where firstname LIKE 'a%';
+
+--8. Get all employee detail whoes name contains letter k.
+SELECT * From EmployeeDetail WHERE firstname LIKE '%k%';
+
+--9. Get all employee detail whoes name end with letter h.
+SELECT * From EmployeeDetail WHERE firstname LIKE '%h';
+
+--10. Get all employee detail whoes name start with any single letter between a-p.
+SELECT * From EmployeeDetail WHERE firstname LIKE '[a-p]%';
+
+--11. Get all employee detail whoes name not start with any single letter between a-p.
+SELECT * From EmployeeDetail WHERE firstname LIKE '[^a-p]%';
+

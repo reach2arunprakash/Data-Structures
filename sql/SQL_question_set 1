@@ -1,0 +1,56 @@
+Question 1: SQL Query to find second highest salary of Employee
+
+Answer: SELECT Max(salary) from employee where salary NOT IN (SELECT max(salary) from employee);
+
+Question 2: SQL Query to find Max Salary from each department.
+
+Answer: SELECT deptID, max(salary) from employee GROUP BY deptID;
+
+Question 3: SQL Query to find Max Salary from each department (list the department name instead of deptID.
+
+Answer: SELECT deptname, max(salary) from employee e RIGHT JOIN department d ON e.deptID=d.deptID GROUP BY deptname;
+
+Question 4: Write SQL Query to display the current date.
+
+Answer: SELECT GetDate();
+
+Question 5: Write an SQL Query to check whether date passed to Query is the date of given format or not.
+
+Answer: SELECT ISDATE('1/08/2013') AS "MM/DD/YY";
+
+Question 6: Write an SQL Query to print the name of the distinct employee whose DOB is between 01/01/1960 to 31/12/1975.
+
+Answer: SELECT DISTINCT name from employee WHERE DOB between '01/01/1960' and '31/12/1975';
+
+Question 7: Write an SQL Query find number of employees according to gender  whose DOB is between 01/01/1960 to 31/12/1975.
+
+Answer: SELECT COUNT(*), gender FROM employee where DOB between '01/01/1960' and '31/12/1975' GROUP BY gender;
+
+Question 8: Write an SQL Query to find an employee whose Salary is equal or greater than 10000.
+
+Answer: SELECT name FROM employee where salary >= 10000;
+
+Question 9: Write an SQL Query to find name of employee whose name Start with ‘M’
+
+Answer: SELECT name FROM employee where name LIKE 'M%';
+
+Question 10: find all Employee records containing the word "Joe", regardless of whether it was stored as JOE, Joe, or joe.
+
+Answer: SELECT * FROM employee WHERE UPPER(name) LIKE '%JOE%';
+
+Question 11: Write an SQL Query to find  the year from date.
+
+Answer: SELECT YEAR(GETDATE()) as "year";
+
+Question 12: Write SQL Query to find duplicate rows in a database? and then write SQL query to delete them?
+
+Answer: SELECT name, COUNT(*) from employee GROUP BY name HAVING COUNT(*)>1
+        DELETE 
+
+Question 13: There is a table which contains two column Student and Marks, you need to find all the students, whose marks are greater than average marks i.e. list of above average students.
+
+Answer: SELECT student, marks from table where marks > (SELECT AVG(masks) from table);
+
+Question 14: How do you find all employees which are also manager? .
+
+Answer: SELECT e.name, m.name FROM employee e JOIN employee m ON e.mgr_id=m.emp_id;

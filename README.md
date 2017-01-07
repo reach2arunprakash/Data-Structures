@@ -218,16 +218,8 @@ DS			  | Indexing     | Search       | Optimized Search| Insertion   | Worst cas
 Linear array  |O(1)	     	 |	O(n)		|		O(log n)  |	 	n/a		|	O(n)	
 Dynamic array |O(1)			|	O(n)	|	O(log n)	| 	O(n)	|	O(n)
 Linked Lists  |O(n)	|	O(n)	|	O(n)	|		O(1)	|	O(n)
-Hash Tables	  |O(1)	||	O(1)		O(1)	|		O(1)	|	O(n)
+Hash Tables	  |O(1)	|	O(1)	|	O(1)	|		O(1)	|	O(n)
 BST			  |O(log n)|	O(log n)|	O(log n)	|	O(log n)|	O(n)
-
-		Indexing	Search		Optimized Search	Insertion	Worst case
-------------- |------------- |------------- |-------------|------------- |------------- |
-Linear array	|O(1)	     |	O(n)|		O(log n)|	 	n/a	|	O(n)|
-Dynamic array	|O(1)	|	O(n)	|	O(log n)	| 	O(n)	|	O(n)|
-Linked Lists	|O(n)	|	O(n)	|	O(n)	|		O(1)	|	O(n)|
-Hash Tables	|O(1)	||	O(1)		O(1)	|		O(1)	|	O(n)|
-BST		|O(log n)|	O(log n)|	O(log n)	|	O(log n)|	O(n)|
 
 
 ###**Array**

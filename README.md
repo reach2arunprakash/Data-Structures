@@ -213,6 +213,10 @@ O(NlogN)
 # Data Structures
 ## Data Structure Basics
 
+DS			  | Indexing     | Search       | Optimized Search| Insertion   | Worst case   
+------------- | -------------| -------------| -------------   | ------------| --------------
+Linear array  |O(1)	     	 |	O(n)		|		O(log n)  |	 	n/a		|	O(n)	
+Content Cell  | Content Cell | Content Cell | Content Cell    | Content Cell| Content Cell
 
 		Indexing	Search		Optimized Search	Insertion	Worst case
 ------------- |------------- |------------- |-------------|------------- |------------- |

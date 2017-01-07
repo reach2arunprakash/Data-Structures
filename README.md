@@ -210,6 +210,208 @@ O(1)
 O(logN)
 O(NlogN)
 
+# Data Structures
+## Data Structure Basics
+
+
+		Indexing	Search		Optimized Search	Insertion	Worst case
+Linear array	O(1)		O(n)		O(log n)	 	n/a		O(n)
+Dynamic array	O(1)		O(n)		O(log n)	 	O(n)		O(n)
+Linked Lists	O(n)		O(n)		O(n)			O(1)		O(n)
+Hash Tables	O(1)		O(1)		O(1)			O(1)		O(n)
+BST		O(log n)	O(log n)	O(log n)		O(log n)	O(n)
+
+
+###**Array**
+####Definition:
+- Stores data elements based on an sequential, most commonly 0 based, index.
+- Based on [tuples](http://en.wikipedia.org/wiki/Tuple) from set theory.
+- They are one of the oldest, most commonly used data structures.  
+
+####What you need to know:
+- Optimal for indexing; bad at searching, inserting, and deleting (except at the end).
+- **Linear arrays**, or one dimensional arrays, are the most basic.
+  - Are static in size, meaning that they are declared with a fixed size.
+- **Dynamic arrays** are like one dimensional arrays, but have reserved space for additional elements.
+  - If a dynamic array is full, it copies it's contents to a larger array.
+- **Two dimensional arrays** have x and y indices like a grid or nested arrays.  
+  
+####Big O efficiency:
+- Indexing:         Linear array: O(1),      Dynamic array: O(1)
+- Search:           Linear array: O(n),      Dynamic array: O(n)
+- Optimized Search: Linear array: O(log n), Dynamic array: O(log n)
+- Insertion:        Linear array: n/a        Dynamic array: O(n)
+
+###**Linked List**
+####Definition: 
+- Stores data with **nodes** that point to other nodes.
+  - Nodes, at its most basic it has one datum and one reference (another node).
+  - A linked list _chains_ nodes together by pointing one node's reference towards another node.  
+
+####What you need to know:
+- Designed to optimize insertion and deletion, slow at indexing and searching.
+- **Doubly linked list** has nodes that reference the previous node.
+- **Circularly linked list** is simple linked list whose **tail**, the last node, references the **head**, the first node.
+
+####Big O efficiency:
+- Indexing:         Linked Lists: O(n)
+- Search:           Linked Lists: O(n)
+- Optimized Search: Linked Lists: O(n)
+- Insertion:        Linked Lists: O(1)  
+
+
+### Stacks
+
+A stack allows access to only one data item: the last item inserted. If you remove this item, you can access the next-to-last item inserted, and so on.
+
+A stack is also a handy aid for algorithms applied to certain complex data structures. In "Binary Trees", we’ll see it used to help traverse the nodes of a tree.
+
+Notice how the order of the data is reversed. Because the last item pushed is the first one popped.
+
+commonly implemented with linked lists but can be made from arrays too.
+  - Stacks are **last in, first out** (LIFO) data structures.
+  - Made with a linked list by having the head be the only place for insertion and removal.
+
+##### Efficiency
+
+Items can be both pushed and popped from the stack implemented in the Stack class in constant `O(1)` time. That is, the time is not dependent on how many items are in the stack and is therefore very quick. No comparisons or moves are necessary.
+
+### Queues
+
+A queue is a data structure that is some- what like a stack, except that in a queue the first item inserted is the first to be removed (First-In-First-Out, `FIFO`), while in a stack, as we’ve seen, the last item inserted is the first to be removed (`LIFO`).
+
+too can be implemented with a linked list or an array.
+  - Queues are a **first in, first out** (FIFO) data structure.
+  - Made with a doubly linked list that only removes from head and adds to tail.  
+  
+#### Deques
+
+A deque is a double-ended queue. You can insert items at either end and delete them from either end. The methods might be called `insertLeft()` and `insertRight()`, and `removeLeft()` and `removeRight()`.
+
+#### Priority Queues
+
+A priority queue is a more specialized data structure than a stack or a queue. However, it’s a useful tool in a surprising number of situations. Like an ordinary queue, a priority queue has a front and a rear, and items are removed from the front. However, in a priority queue, items are ordered by key value so that the item with the lowest key (or in some implementations the highest key) is always at the front. Items are inserted in the proper position to maintain the order.
+
+Difference between a heap and a priority queue
+
+A priority queue can have any implementation, like a array that you search linearly when you pop. All it means is that when you pop you get the value with either the minimum or the maximum depending.
+
+A classic heap as it is typically referred to is usually a min heap. An implementation that has good time complexity (O(log n) on push and pop) and no memory overhead.
+
+In short, a priority queue can be implemented using many of the data structures that we've already studied (an array, a linked list, or a binary search tree). However, those data structures do not provide the most efficient operations. To make all of the operations very efficient, we'll use a new data structure called a heap.
+
+##### Efficiency
+
+In the priority-queue implementation we show here, insertion runs in `O(N)` time, while deletion takes `O(1)` time.
+
+### Linked List
+
+Arrays had certain disadvantages as data storage structures. In an unordered array, searching is slow, whereas in an ordered array, insertion is slow. In both kinds of arrays, deletion is slow. Also, the size of an array can’t be changed after it’s created.
+
+We’ll look at a data storage structure that solves some of these problems: the linked list. Linked lists are probably the second most commonly used general-purpose storage structures after arrays.
+
+#### Links
+
+In a linked list, each data item is embedded in a link. A link is an object of a class called something like Link. Each Link object contains a reference (usually called next) to the next link in the list.
+
+The LinkList class contains only one data item: a reference to the first link on the list. This reference is called first. It’s the only permanent information the list maintains about the location of any of the links. It finds the other links by following the chain of references from first, using each link’s next field.
+
+#### Double-Ended Lists
+
+A double-ended list is similar to an ordinary linked list, but it has one additional feature: a reference to the last link as well as to the first.
+
+The reference to the last link permits you to insert a new link directly at the end of the list as well as at the beginning. Of course, you can insert a new link at the end of an ordinary single-ended list by iterating through the entire list until you reach the end, but this approach is inefficient.
+
+Access to the end of the list as well as the beginning makes the double-ended list suitable for certain situations that a single-ended list can’t handle efficiently. One such situation is implementing a queue; we’ll see how this technique works in the next section.
+
+##### Linked-List Efficiency
+
+Insertion and deletion at the beginning of a linked list are very fast. They involve changing only one or two references, which takes `O(1)` time.
+
+Finding, deleting, or inserting next to a specific item requires searching through, on the average, half the items in the list. This requires `O(N)` comparisons. An array is also `O(N)` for these operations, but the linked list is nevertheless faster because nothing needs to be moved when an item is inserted or deleted. The increased effi- ciency can be significant, especially if a copy takes much longer than a comparison.
+
+Of course, another important advantage of linked lists over arrays is that a linked list uses exactly as much memory as it needs and can expand to fill all of available memory.
+
+#### Sorted Lists
+
+In the linked lists we’ve seen thus far, there was no requirement that data be stored in order. However, for certain applications it’s useful to maintain the data in sorted order within the list. A list with this characteristic is called a sorted list.
+
+In a sorted list, the items are arranged in sorted order by key value. Deletion is often limited to the smallest (or the largest) item in the list, which is at the start of the list, although sometimes `find()` and `delete()` methods, which search through the list for specified links, are used as well.
+
+##### Efficiency of Sorted Linked Lists
+
+Insertion and deletion of arbitrary items in the sorted linked list require `O(N)` comparisons (`N/2` on the average) because the appropriate location must be found by stepping through the list. However, the minimum value can be found, or deleted, in `O(1)` time because it’s at the beginning of the list. If an application frequently accesses the minimum item, and fast insertion isn’t critical, then a sorted linked list is an effective choice. A priority queue might be implemented by a sorted linked list, for example.
+
+#### Doubly Linked Lists
+
+Let’s examine another variation on the linked list: the doubly linked list (not to be confused with the double-ended list). What’s the advantage of a doubly linked list? A potential problem with ordinary linked lists is that it’s difficult to traverse backward along the list. A statement like
+current=current.next
+steps conveniently to the next link, but there’s no corresponding way to go to the previous link. 
+
+The doubly linked list provides this capability. It allows you to traverse backward as well as forward through the list. The secret is that each link has two references to other links instead of one. The first is to the next link, as in ordinary lists. The second is to the previous link.
+
+#### Doubly Linked List as Basis for Deques
+
+A doubly linked list can be used as the basis for a deque. In a deque you can insert and delete at either end, and the doubly linked list provides this capability.
+
+### Iterator
+
+Objects containing references to items in data structures, used to traverse these structures, are commonly called iterators (or sometimes, as in certain Java classes, enumerators). 
+
+### Hash Tables
+
+One important concept is how a range of key values is transformed into a range of array index values. In a hash table this is accomplished with a hash function. However, for certain kinds of keys, no hash function is necessary; the key values can be used directly as array indices.
+
+Thus, we look for a way to squeeze a range of 0 to more than `7,000,000,000,000` into the range `0` to `100,000`. A simple approach is to use the **modulo operator** (`%`), which finds the remainder when one number is divided by another:
+
+```
+arrayIndex = hugeNumber % arraySize;
+```
+
+This is an example of a hash function. It hashes (converts) a number in a large range into a number in a smaller range. 
+
+##### Hashing Efficiency
+
+Insertion and searching in hash tables can approach `O(1)` time. If no collision occurs, only a call to the hash function and a single array reference are necessary to insert a new item or find an existing item. This is the minimum access time.
+
+
+####What you need to know:
+- Designed to optimize searching, insertion, and deletion.
+- **Hash collisions** are when a hash function returns the same output for two distinct outputs.
+  - All hash functions have this problem.
+  - This is often accommodated for by having the hash tables be very large.
+- Hashes are important for associative arrays and database indexing.
+
+####Big O efficiency:
+- Indexing:         Hash Tables: O(1)
+- Search:           Hash Tables: O(1)
+- Insertion:        Hash Tables: O(1)  
+
+### Algorithms and Data Structures of JDK 7
+
+http://www.yetanothercoder.ru/2013/06/algorithms-and-data-structures-of-jdk-7.html
+
+###**Binary Tree**
+####Definition: 
+- Is a tree like data structure where every node has at most two children.
+  - There is one left and right child node.
+
+####What you need to know:
+- Designed to optimize searching and sorting.
+- A **degenerate tree** is an unbalanced tree, which if entirely one-sided is a essentially a linked list.
+- They are comparably simple to implement than other data structures.
+- Used to make **binary search trees**.
+  - A binary tree that uses comparable keys to assign which direction a child is.
+  - Left child has a key smaller than it's parent node.
+  - Right child has a key greater than it's parent node.
+  - There can be no duplicate node.
+  - Because of the above it is more likely to be used as a data structure than a binary tree.
+
+####Big O efficiency:
+- Indexing:  Binary Search Tree: O(log n)
+- Search:    Binary Search Tree: O(log n)
+- Insertion: Binary Search Tree: O(log n) 
+
 
 
 # Algorithms
@@ -455,198 +657,6 @@ greedy algorithm (array)
 
 This algorithm never needed to compare all the differences to one another, saving it an entire iteration.
 
-# Data Structures
-## Data Structure Basics
-
-###**Array**
-####Definition:
-- Stores data elements based on an sequential, most commonly 0 based, index.
-- Based on [tuples](http://en.wikipedia.org/wiki/Tuple) from set theory.
-- They are one of the oldest, most commonly used data structures.  
-
-####What you need to know:
-- Optimal for indexing; bad at searching, inserting, and deleting (except at the end).
-- **Linear arrays**, or one dimensional arrays, are the most basic.
-  - Are static in size, meaning that they are declared with a fixed size.
-- **Dynamic arrays** are like one dimensional arrays, but have reserved space for additional elements.
-  - If a dynamic array is full, it copies it's contents to a larger array.
-- **Two dimensional arrays** have x and y indices like a grid or nested arrays.  
-  
-####Big O efficiency:
-- Indexing:         Linear array: O(1),      Dynamic array: O(1)
-- Search:           Linear array: O(n),      Dynamic array: O(n)
-- Optimized Search: Linear array: O(log n), Dynamic array: O(log n)
-- Insertion:        Linear array: n/a        Dynamic array: O(n)
-
-###**Linked List**
-####Definition: 
-- Stores data with **nodes** that point to other nodes.
-  - Nodes, at its most basic it has one datum and one reference (another node).
-  - A linked list _chains_ nodes together by pointing one node's reference towards another node.  
-
-####What you need to know:
-- Designed to optimize insertion and deletion, slow at indexing and searching.
-- **Doubly linked list** has nodes that reference the previous node.
-- **Circularly linked list** is simple linked list whose **tail**, the last node, references the **head**, the first node.
-
-####Big O efficiency:
-- Indexing:         Linked Lists: O(n)
-- Search:           Linked Lists: O(n)
-- Optimized Search: Linked Lists: O(n)
-- Insertion:        Linked Lists: O(1)  
-
-
-### Stacks
-
-A stack allows access to only one data item: the last item inserted. If you remove this item, you can access the next-to-last item inserted, and so on.
-
-A stack is also a handy aid for algorithms applied to certain complex data structures. In "Binary Trees", we’ll see it used to help traverse the nodes of a tree.
-
-Notice how the order of the data is reversed. Because the last item pushed is the first one popped.
-
-commonly implemented with linked lists but can be made from arrays too.
-  - Stacks are **last in, first out** (LIFO) data structures.
-  - Made with a linked list by having the head be the only place for insertion and removal.
-
-##### Efficiency
-
-Items can be both pushed and popped from the stack implemented in the Stack class in constant `O(1)` time. That is, the time is not dependent on how many items are in the stack and is therefore very quick. No comparisons or moves are necessary.
-
-### Queues
-
-A queue is a data structure that is some- what like a stack, except that in a queue the first item inserted is the first to be removed (First-In-First-Out, `FIFO`), while in a stack, as we’ve seen, the last item inserted is the first to be removed (`LIFO`).
-
-too can be implemented with a linked list or an array.
-  - Queues are a **first in, first out** (FIFO) data structure.
-  - Made with a doubly linked list that only removes from head and adds to tail.  
-  
-#### Deques
-
-A deque is a double-ended queue. You can insert items at either end and delete them from either end. The methods might be called `insertLeft()` and `insertRight()`, and `removeLeft()` and `removeRight()`.
-
-#### Priority Queues
-
-A priority queue is a more specialized data structure than a stack or a queue. However, it’s a useful tool in a surprising number of situations. Like an ordinary queue, a priority queue has a front and a rear, and items are removed from the front. However, in a priority queue, items are ordered by key value so that the item with the lowest key (or in some implementations the highest key) is always at the front. Items are inserted in the proper position to maintain the order.
-
-Difference between a heap and a priority queue
-
-A priority queue can have any implementation, like a array that you search linearly when you pop. All it means is that when you pop you get the value with either the minimum or the maximum depending.
-
-A classic heap as it is typically referred to is usually a min heap. An implementation that has good time complexity (O(log n) on push and pop) and no memory overhead.
-
-In short, a priority queue can be implemented using many of the data structures that we've already studied (an array, a linked list, or a binary search tree). However, those data structures do not provide the most efficient operations. To make all of the operations very efficient, we'll use a new data structure called a heap.
-
-##### Efficiency
-
-In the priority-queue implementation we show here, insertion runs in `O(N)` time, while deletion takes `O(1)` time.
-
-### Linked List
-
-Arrays had certain disadvantages as data storage structures. In an unordered array, searching is slow, whereas in an ordered array, insertion is slow. In both kinds of arrays, deletion is slow. Also, the size of an array can’t be changed after it’s created.
-
-We’ll look at a data storage structure that solves some of these problems: the linked list. Linked lists are probably the second most commonly used general-purpose storage structures after arrays.
-
-#### Links
-
-In a linked list, each data item is embedded in a link. A link is an object of a class called something like Link. Each Link object contains a reference (usually called next) to the next link in the list.
-
-The LinkList class contains only one data item: a reference to the first link on the list. This reference is called first. It’s the only permanent information the list maintains about the location of any of the links. It finds the other links by following the chain of references from first, using each link’s next field.
-
-#### Double-Ended Lists
-
-A double-ended list is similar to an ordinary linked list, but it has one additional feature: a reference to the last link as well as to the first.
-
-The reference to the last link permits you to insert a new link directly at the end of the list as well as at the beginning. Of course, you can insert a new link at the end of an ordinary single-ended list by iterating through the entire list until you reach the end, but this approach is inefficient.
-
-Access to the end of the list as well as the beginning makes the double-ended list suitable for certain situations that a single-ended list can’t handle efficiently. One such situation is implementing a queue; we’ll see how this technique works in the next section.
-
-##### Linked-List Efficiency
-
-Insertion and deletion at the beginning of a linked list are very fast. They involve changing only one or two references, which takes `O(1)` time.
-
-Finding, deleting, or inserting next to a specific item requires searching through, on the average, half the items in the list. This requires `O(N)` comparisons. An array is also `O(N)` for these operations, but the linked list is nevertheless faster because nothing needs to be moved when an item is inserted or deleted. The increased effi- ciency can be significant, especially if a copy takes much longer than a comparison.
-
-Of course, another important advantage of linked lists over arrays is that a linked list uses exactly as much memory as it needs and can expand to fill all of available memory.
-
-#### Sorted Lists
-
-In the linked lists we’ve seen thus far, there was no requirement that data be stored in order. However, for certain applications it’s useful to maintain the data in sorted order within the list. A list with this characteristic is called a sorted list.
-
-In a sorted list, the items are arranged in sorted order by key value. Deletion is often limited to the smallest (or the largest) item in the list, which is at the start of the list, although sometimes `find()` and `delete()` methods, which search through the list for specified links, are used as well.
-
-##### Efficiency of Sorted Linked Lists
-
-Insertion and deletion of arbitrary items in the sorted linked list require `O(N)` comparisons (`N/2` on the average) because the appropriate location must be found by stepping through the list. However, the minimum value can be found, or deleted, in `O(1)` time because it’s at the beginning of the list. If an application frequently accesses the minimum item, and fast insertion isn’t critical, then a sorted linked list is an effective choice. A priority queue might be implemented by a sorted linked list, for example.
-
-#### Doubly Linked Lists
-
-Let’s examine another variation on the linked list: the doubly linked list (not to be confused with the double-ended list). What’s the advantage of a doubly linked list? A potential problem with ordinary linked lists is that it’s difficult to traverse backward along the list. A statement like
-current=current.next
-steps conveniently to the next link, but there’s no corresponding way to go to the previous link. 
-
-The doubly linked list provides this capability. It allows you to traverse backward as well as forward through the list. The secret is that each link has two references to other links instead of one. The first is to the next link, as in ordinary lists. The second is to the previous link.
-
-#### Doubly Linked List as Basis for Deques
-
-A doubly linked list can be used as the basis for a deque. In a deque you can insert and delete at either end, and the doubly linked list provides this capability.
-
-### Iterator
-
-Objects containing references to items in data structures, used to traverse these structures, are commonly called iterators (or sometimes, as in certain Java classes, enumerators). 
-
-### Hash Tables
-
-One important concept is how a range of key values is transformed into a range of array index values. In a hash table this is accomplished with a hash function. However, for certain kinds of keys, no hash function is necessary; the key values can be used directly as array indices.
-
-Thus, we look for a way to squeeze a range of 0 to more than `7,000,000,000,000` into the range `0` to `100,000`. A simple approach is to use the **modulo operator** (`%`), which finds the remainder when one number is divided by another:
-
-```
-arrayIndex = hugeNumber % arraySize;
-```
-
-This is an example of a hash function. It hashes (converts) a number in a large range into a number in a smaller range. 
-
-##### Hashing Efficiency
-
-Insertion and searching in hash tables can approach `O(1)` time. If no collision occurs, only a call to the hash function and a single array reference are necessary to insert a new item or find an existing item. This is the minimum access time.
-
-
-####What you need to know:
-- Designed to optimize searching, insertion, and deletion.
-- **Hash collisions** are when a hash function returns the same output for two distinct outputs.
-  - All hash functions have this problem.
-  - This is often accommodated for by having the hash tables be very large.
-- Hashes are important for associative arrays and database indexing.
-
-####Big O efficiency:
-- Indexing:         Hash Tables: O(1)
-- Search:           Hash Tables: O(1)
-- Insertion:        Hash Tables: O(1)  
-
-### Algorithms and Data Structures of JDK 7
-
-http://www.yetanothercoder.ru/2013/06/algorithms-and-data-structures-of-jdk-7.html
-
-###**Binary Tree**
-####Definition: 
-- Is a tree like data structure where every node has at most two children.
-  - There is one left and right child node.
-
-####What you need to know:
-- Designed to optimize searching and sorting.
-- A **degenerate tree** is an unbalanced tree, which if entirely one-sided is a essentially a linked list.
-- They are comparably simple to implement than other data structures.
-- Used to make **binary search trees**.
-  - A binary tree that uses comparable keys to assign which direction a child is.
-  - Left child has a key smaller than it's parent node.
-  - Right child has a key greater than it's parent node.
-  - There can be no duplicate node.
-  - Because of the above it is more likely to be used as a data structure than a binary tree.
-
-####Big O efficiency:
-- Indexing:  Binary Search Tree: O(log n)
-- Search:    Binary Search Tree: O(log n)
-- Insertion: Binary Search Tree: O(log n) 
 
 
 ## Search Basics

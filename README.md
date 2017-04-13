@@ -304,6 +304,13 @@ In short, a priority queue can be implemented using many of the data structures 
 
 In the priority-queue implementation we show here, insertion runs in `O(N)` time, while deletion takes `O(1)` time.
 
+
+ Data Structures: Queues & Stacks
+        Design and implement a stack. Implement the different methods: push, pop, retrieve the minimum element in constant time. 
+        Design a queue using stacks as the underlying data structure (solution).  Implement a stack using queues as the underlying data structure.
+
+
+
 ### Linked List
 
 Arrays had certain disadvantages as data storage structures. In an unordered array, searching is slow, whereas in an ordered array, insertion is slow. In both kinds of arrays, deletion is slow. Also, the size of an array can’t be changed after it’s created.
@@ -386,6 +393,18 @@ Insertion and searching in hash tables can approach `O(1)` time. If no collision
 - Indexing:         Hash Tables: O(1)
 - Search:           Hash Tables: O(1)
 - Insertion:        Hash Tables: O(1)  
+
+
+####Data Structures: Hash Tables
+How do hash tables work?What are some examples of real life hash tables? When is a hash table a poor data choice?
+            What are different ways of managing collisions?
+            Implement a hash table.
+ Find the first non-repeated character in a string.
+        Implement a spell checker. What are the interfaces you would expose?
+            What are some ways you could come up with alternative words to suggest?
+            Write the code that would do the checking on the document.
+
+
 
 ### Algorithms and Data Structures of JDK 7
 

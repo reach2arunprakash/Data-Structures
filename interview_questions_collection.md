@@ -1,3 +1,68 @@
+
+   What is something substantive that you've done to improve as a developer in your career?
+    Would you call yourself a craftsman (craftsperson) and what does that word mean to you?
+    Implement a <basic data structure> using <some language> on <paper|whiteboard|notepad>.
+    What is SOLID?
+    Why is the Single Responsibility Principle important?
+    What is Inversion of Control? How does that relate to dependency injection?
+    How does a 3 tier application differ from a 2 tier one?
+    Why are interfaces important?
+    What is the Repository pattern? The Factory Pattern? Why are patterns important?
+    What are some examples of anti-patterns?
+    Who are the Gang of Four? Why should you care?
+    How do the MVP, MVC, and MVVM patterns relate? When are they appropriate?
+    Explain the concept of Separation of Concerns and it's pros and cons.
+    Name three primary attributes of object-oriented design. Describe what they mean and why they're important.
+    Describe a pattern that is NOT the Factory Pattern? How is it used and when?
+    You have just been put in charge of a legacy code project with maintainability problems. What kind of things would you look to improve to get the project on a stable footing?
+    Show me a portfolio of all the applications you worked on, and tell me how you contributed to design them.
+    What are some alternate ways to store data other than a relational database? Why would you do that, and what are the trade-offs?
+    Explain the concept of convention over configuration, and talk about an example of convention over configuration you have seen in the wild.
+    Explain the differences between stateless and stateful systems, and impacts of state on parallelism.
+    Discuss the differences between Mocks and Stubs/Fakes and where you might use them (answers aren't that important here, just the discussion that would ensue).
+    Discuss the concept of YAGNI and explain something you did recently that adhered to this practice.
+    Explain what is meant by a sandbox, why you would use one, and identify examples of sandboxes in the wild.
+    Concurrency
+        What's the difference between Locking and Lockless (Optimistic and Pessimistic) concurrency models?
+        What kinds of problems can you hit with locking model? And a lockless model?
+        What trade offs do you have for resource contention?
+        How might a task-based model differ from a threaded model?
+        What's the difference between asynchrony and concurrency?
+    Are you still writing code? Do you love it?
+    You've just been assigned to a project in a new technology how would you get started?
+    How does the addition of Service Orientation change systems? When is it appropriate to use?
+    What do you do to stay abreast of the latest technologies and tools?
+    What is the difference between "set" logic, and "procedural" logic. When would you use each one and why?
+    What Source Control systems have you worked with?
+    What is Continuous Integration?  Have you used it and why is it important?
+    Describe a software development life cycle that you've managed.
+    How do you react to people criticizing your code/documents?
+    Whose blogs or podcasts do you follow? Do you blog or podcast?
+    Tell me about some of your hobby projects that you've written in your off time.
+    What is the last programming book you read?
+    Describe, in as much detail as you think is relevant, as deeply as you can, what happens when I type "cnn.com" into a browser and press "Go".
+    Describe the structure and contents of a design document, or a set of design documents, for a multi-tiered web application.
+    What's so great about <cool web technology of the day>?
+    How can you stop your DBA from making off with a list of your users’ passwords?
+    What do you do when you get stuck with a problem you can't solve?
+    If your database was under a lot of strain, what are the first few things you might consider to speed it up?
+    What is SQL injection?
+    What's the difference between unit test and integration test?
+    Tell me about 3 times you failed.
+    What is Refactoring ? Have you used it and it is important? Name three common refactorings.
+    You have two computers, and you want to get data from one to the other. How could you do it?
+    Left to your own devices, what would you create?
+    Given Time, Cost, Client satisfaction and Best Practices, how will you prioritize them for a project you are working on? Explain why.
+    What's the difference between a web server, web farm and web garden? How would your web application need to change for each?
+    What value do daily builds, automated testing, and peer reviews add to a project? What disadvantages are there?
+    What elements of OO design are most prone to abuse? How would you mitigate that?
+    When do you know your code is ready for production?
+    What's YAGNI? Is this list of questions an example?
+    Describe to me some bad code you've read or inherited lately.
+
+
+
+
 When it comes to interviewing having a good list of questions to share with your team can be invaluable.  It helps everyone prepare a little easier; plus being aware of what other people are asking is a great way to ensure that you cover a diverse set of areas (giving you a better view into an imperfect process, and the candidate a better chance to get things right).
 
 This is the list I used to use (largely for software engineers and web developers, but many are also good for other roles like PMs, etc.).

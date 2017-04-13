@@ -1,4 +1,13 @@
+The Five Essential Questions for the first phone-screen with an SDE candidate:
 
+1) Coding. The candidate has to write some simple code, with correct syntax, in C, C++, or Java.
+2) OO design. The candidate has to define basic OO concepts, and come up with classes to model a simple problem.
+3) Scripting and regexes. The candidate has to describe how to find the phone numbers in 50,000 HTML pages.
+4) Data structures. The candidate has to demonstrate basic knowledge of the most common data structures.
+5) Bits and bytes. The candidate has to answer simple questions about bits, bytes, and binary numbers. 
+   
+   
+   
    What is something substantive that you've done to improve as a developer in your career?
     Would you call yourself a craftsman (craftsperson) and what does that word mean to you?
     Implement a <basic data structure> using <some language> on <paper|whiteboard|notepad>.

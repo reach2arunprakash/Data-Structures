@@ -722,6 +722,8 @@ This algorithm never needed to compare all the differences to one another, savin
 - The simple answer to this question is that it depends on the size and shape of the tree.
   - For wide, shallow trees use Breadth First Search
   - For deep, narrow trees use Depth First Search
+  - Depth-First Searches use a stack as the nodes are processed, backtracking is provided with DFS
+  - Breadth-First Searches use a queue, not a stack, to keep track of what nodes are processed, backtracking is not provided with BFS
 
 ####Nuances:
   - Because BFS uses queues to store information about the nodes and its children, it could use more memory than is available on your computer.  (But you probably won't have to worry about this.)
@@ -729,6 +731,11 @@ This algorithm never needed to compare all the differences to one another, savin
   - Breadth First Search tends to be a looping algorithm.
   - Depth First Search tends to be a recursive algorithm.
 
+Depth-first searches are often used in simulations of games (and game-like situations in the real world). In a typical game you can choose one of several possible actions. Each choice leads to further choices, each of which leads to further choices, and so on into an ever-expanding tree-shaped graph of possibilities.
+
+For example in games like Chess, tic-tac-toe or sudoku when you are deciding what move to make, you can mentally imagine a move, then your opponent’s possible responses, then your responses, and so on. You can decide what to do by seeing which move leads to the best outcome.DFS is more based on scenarios where we want to forecast something based on data we have from source to destination
+
+Breadth-first search can be used for finding the neighbour nodes in peer to peer networks like BitTorrent, GPS systems to find nearby locations, social networking sites to find people in the specified distance and things like that. We receive suggestion to add friends from the FB profile from other other friends profile. Suppose A->B, while B->E and B->F, so A will get suggestion for E And F. They must be using BFS to read till second level
 
 # Top 10 Object Oriented Design Principles
 

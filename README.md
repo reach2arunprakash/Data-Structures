@@ -1041,6 +1041,24 @@ Array:
 
     Input: find 5 in (15, 16, 19, 20, 25, 1, 3, 4, 5, 6, 10, 14) Output 8
 - Implement a simple regular expression matching function
+**Backtracking**
+
+    Print all possible solutions to N Queens problem
+    Print all Possible Knight’s Tours in a chessboard
+    Find Shortest Path in Maze
+    Find Longest Possible Route in a Matrix
+    Find path from source to destination in a matrix that satisfies given constraints
+    Find total number of unique paths in a maze from source to destination
+    Print All Hamiltonian Path present in a graph
+    Print all k-colorable configurations of the graph (Vertex coloring of graph)
+    Find all Permutations of a given string
+    All combinations of elements satisfying given constraints
+    Find all binary strings that can be formed from given wildcard pattern
+    K-Partition Problem | Printing all Partitions
+    Magnet Puzzle
+    Find ways to calculate a target from elements of specified array
+    Find minimum number possible by doing at-most K swaps
+    Determine if a pattern matches with a string or not
 
 **Uncategorized**
 - Given a max-heap, how do I find the top k items?

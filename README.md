@@ -184,7 +184,7 @@ N		N log N		N2
 32		    160		1024
 128		    896		16,384
 512		    4,608	262,144
-2,048	    22,528	4,194,304
+2,048	            22,528	4,194,304
 ```
 
 
@@ -213,13 +213,13 @@ O(NlogN)
 # Data Structures
 ## Data Structure Basics
 
-DS			  | Indexing     | Search       | Optimized Search| Insertion   | Worst case   
-------------- | -------------| -------------| -------------   | ------------| --------------
-Linear array  |O(1)	     	 |	O(n)		|		O(log n)  |	 	n/a		|	O(n)	
-Dynamic array |O(1)			|	O(n)	|	O(log n)	| 	O(n)	|	O(n)
-Linked Lists  |O(n)	|	O(n)	|	O(n)	|		O(1)	|	O(n)
-Hash Tables	  |O(1)	|	O(1)	|	O(1)	|		O(1)	|	O(n)
-BST			  |O(log n)|	O(log n)|	O(log n)	|	O(log n)|	O(n)
+DS	      | Indexing     | Search   | Optimized Search| Insertion   | Worst case   
+------------- | -------------| ---------| -------------   | ------------| --------------
+Linear array  |O(1)	     |	O(n)	|	O(log n)  |	 n/a	|	O(n)	
+Dynamic array |O(1)	     |	O(n)	|	O(log n)  | 	O(n)	|	O(n)
+Linked Lists  |O(n)	     |	O(n)	|	O(n)	  |	O(1)	|	O(n)
+Hash Tables   |O(1)	     |	O(1)	|	O(1)	  |	O(1)	|	O(n)
+BST	      |O(log n)      |	O(log n)|	O(log n)  |	O(log n)|	O(n)
 
 
 ###**Array**

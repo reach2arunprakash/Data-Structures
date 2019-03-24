@@ -792,8 +792,10 @@ Technical Interview Questions
 - **HARD**: Given a function rand5() that returns a random int between 0 and 5, implement rand7()
 - **HARD**: Given a 2D array of 1s and 0s, count the number of "islands of 1s" (e.g. groups of connecting 1s)
 **Arrays Additional**
+
 Array:
-	Find pair with given sum in the array
+
+    Find pair with given sum in the array
     Check if subarray with 0 sum is exists or not
     Print all sub-arrays with 0 sum
     Sort binary array in linear time

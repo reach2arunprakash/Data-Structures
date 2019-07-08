@@ -737,6 +737,189 @@ For example in games like Chess, tic-tac-toe or sudoku when you are deciding wha
 
 Breadth-first search can be used for finding the neighbour nodes in peer to peer networks like BitTorrent, GPS systems to find nearby locations, social networking sites to find people in the specified distance and things like that. We receive suggestion to add friends from the FB profile from other other friends profile. Suppose A->B, while B->E and B->F, so A will get suggestion for E And F. They must be using BFS to read till second level
 
+###**Dynamic programming(Remember your Past)**
+####Definition:
+Dynamic programming (usually referred to as DP ) is a very powerful technique to solve a particular class of problems.
+
+ If the given problem can be broken up in to smaller sub-problems and these smaller subproblems are in turn divided in to still-smaller ones, and in this process, if you observe some over-lapping subproblems, then its a big hint for DP. Also, the optimal solutions to the subproblems contribute to the optimal solution of the given problem ( referred to as the Optimal Substructure Property ). DP solutions have a polynomial complexity which assures a much faster running time than other techniques like backtracking, brute-force etc.
+https://www.topcoder.com/community/competitive-programming/tutorials/dynamic-programming-from-novice-to-advanced/
+
+
+Jonathan Paulson’s answer to How should I explain dynamic programming to a 4-year-old?
+https://www.quora.com/How-should-I-explain-dynamic-programming-to-a-4-year-old/answer/Jonathan-Paulson
+
+*writes down "1+1+1+1+1+1+1+1 =" on a sheet of paper*
+"What's that equal to?"
+*counting* "Eight!"
+*writes down another "1+" on the left*
+"What about that?"
+*quickly* "Nine!"
+"How'd you know it was nine so fast?"
+"You just added one more"
+"So you didn't need to recount because you remembered there were eight! Dynamic Programming is just a fancy way to say 'remembering stuff to save time later'"
+
+
+There are two ways of doing this.
+
+1.) ####Top-Down : Start solving the given problem by breaking it down. If you see that the problem has been solved already, then just return the saved answer. If it has not been solved, solve it and save the answer. This is usually easy to think of and very intuitive. This is referred to as Memoization.
+
+2.) ####Bottom-Up : Analyze the problem and see the order in which the sub-problems are solved and start solving from the trivial subproblem, up towards the given problem. In this process, it is guaranteed that the subproblems are solved before solving the problem. This is referred to as Dynamic Programming.
+
+Note that divide and conquer is slightly a different technique. In that, we divide the problem in to non-overlapping subproblems and solve them independently, like in mergesort and quick sort.
+
+Even some of the high-rated coders go wrong in tricky DP problems many times. DP gurus suggest that DP is an art and its all about Practice. The more DP problems you solve, the easier it gets to relate a new problem to the one you solved already and tune your thinking very fast. It looks like a magic when you see some one solving a tricky DP so easily. Its time for you to learn some magic now :). Lets start with a very simple problem.
+Problem : Minimum Steps to One
+
+Problem Statement: On a positive integer, you can perform any one of the following 3 steps. 1.) Subtract 1 from it. ( n = n - 1 )  , 2.) If its divisible by 2, divide by 2. ( if n % 2 == 0 , then n = n / 2  )  , 3.) If its divisible by 3, divide by 3. ( if n % 3 == 0 , then n = n / 3  ). Now the question is, given a positive integer n, find the minimum number of steps that takes n to 1
+
+eg: 1.)For n = 1 , output: 0       2.) For n = 4 , output: 2  ( 4  /2 = 2  /2 = 1 )    3.)  For n = 7 , output: 3  (  7  -1 = 6   /3 = 2   /2 = 1 )
+
+Approach / Idea: One can think of greedily choosing the step, which makes n as low as possible and conitnue the same, till it reaches  1. If you observe carefully, the greedy strategy doesn't work here. Eg: Given n = 10 , Greedy --> 10 /2 = 5  -1 = 4  /2 = 2  /2 = 1  ( 4 steps ). But the optimal way is --> 10  -1 = 9  /3 = 3  /3 = 1 ( 3 steps ). So, we need to try out all possible steps we can make for each possible value of n we encounter and choose the minimum of these possibilities.
+
+It all starts with recursion :).  F(n) =   1 + min{  F(n-1) ,  F(n/2)  ,  F(n/3)  }  if (n>1) , else 0  ( i.e., F(1) = 0 ) . Now that we have our recurrence equation, we can right way start coding the recursion. Wait.., does it have over-lapping subproblems ?  YES. Is the optimal solution to a given input depends on the optimal solution of its subproblems ? Yes... Bingo ! its DP :) So, we just store the solutions  to the subproblems we solve and use them later on, as in memoization.. or we start from bottom and move up till the given n, as in dp. As its the very first problem we are looking at here, lets see both the codes.
+
+Memoization
+
+[code]
+```
+int memo[n+1]; // we will initialize the elements to -1 ( -1 means, not solved it yet )
+
+int getMinSteps ( int n )
+
+{
+
+if ( n == 1 )  return 0;  // base case
+
+if( memo[n] != -1 ) return memo[n];  // we have solved it already :)
+
+int r = 1 + getMinSteps( n - 1 );  // '-1' step .  'r' will contain the optimal answer finally
+
+if( n%2 == 0 )   r  =  min( r , 1 + getMinSteps( n / 2 ) ) ;  //  '/2' step
+
+if( n%3 == 0 )   r  =  min( r , 1 + getMinSteps( n / 3 ) ) ;  //  '/3' step
+
+memo[n] = r ;  // save the result. If you forget this step, then its same as plain recursion.
+
+return r;
+
+}
+
+[/code]
+
+Bottom-Up DP
+
+[code]
+
+int getMinSteps ( int n )
+
+{
+
+int dp[n+1] , i;
+
+dp[1] = 0;  // trivial case
+
+for( i = 2 ; i < = n ; i ++ )
+
+{
+
+dp[i] = 1 + dp[i-1];
+
+if(i%2==0) dp[i] = min( dp[i] , 1+ dp[i/2] );
+
+if(i%3==0) dp[i] = min( dp[i] , 1+ dp[i/3] );
+
+}
+
+return dp[n];
+
+}
+
+[/code]
+```
+Both the approaches are fine. But one should also take care of the lot of over head involved in the function calls in Memoization, which may give StackOverFlow error or TLE rarely.
+
+Problem : Longest Increasing subsequence
+
+The Longest Increasing Subsequence problem is to find the longest increasing subsequence of a given sequence. Given a sequence S= {a1 , a2 , a3, a4, ............., an-1, an } we have to find a longest subset such that for all j and i,  j<i in the subset aj<ai.
+
+First of all we have to find the value of the longest subsequences(LSi) at every index i with last element of sequence being ai. Then largest LSi would be the longest subsequence in the given sequence. To begin LSi is assigned to be one since ai is element of the sequence(Last element). Then for all j such that j<i and aj<ai ,we find Largest LSj and add it to LSi. Then algorithm take O(n2) time.
+
+Pseudo-code for finding the length of the longest increasing subsequence:
+
+This algorithms complexity could be reduced by using better data structure rather than array. Storing predecessor array and variable like largest_sequences_so_far and its index would save a lot time.
+
+Similar concept could be applied in finding longest path in Directed acyclic graph.
+```
+for i=0 to n-1
+
+            LS[i]=1
+
+            for j=0 to i-1
+
+                        if (a[i] >  a[j] and LS[i]<LS[j])
+
+                                    LS[i] = LS[j]+1
+
+ for i=0 to n-1
+
+            if (largest < LS[i])
+
+                        largest = LS[i]
+```
+
+###Please find below top 50 common data structure problems that can be solved using Dynamic programming -
+
+    Longest Common Subsequence | Introduction & LCS Length
+    Longest Common Subsequence | Finding all LCS
+    Longest Common Substring problem
+    Longest Palindromic Subsequence using Dynamic Programming
+    Longest Repeated Subsequence Problem
+    Implement Diff Utility
+    Shortest Common Supersequence | Introduction & SCS Length
+    Shortest Common Supersequence | Finding all SCS
+    Longest Increasing Subsequence using Dynamic Programming
+    Longest Bitonic Subsequence
+    Increasing Subsequence with Maximum Sum
+    The Levenshtein distance (Edit distance) problem
+    Find size of largest square sub-matrix of 1’s present in given binary matrix
+    Matrix Chain Multiplication using Dynamic Programming
+    Find the minimum cost to reach last cell of the matrix from its first cell
+    Find longest sequence formed by adjacent numbers in the matrix
+    Count number of paths in a matrix with given cost to reach destination cell
+    0–1 Knapsack problem
+    Maximize the Value of an Expression
+    Partition problem | Dynamic Programming Solution
+    Subset Sum Problem
+    Minimum Sum Partition Problem
+    Find all N-digit binary strings without any consecutive 1’s
+    Rod Cutting Problem
+    Maximum Product Rod Cutting
+    Coin change-making problem (unlimited supply of coins)
+    Coin Change Problem (Total number of ways to get the denomination of coins)
+    Longest Alternating Subsequence Problem
+    Count number of times a pattern appears in given string as a subsequence
+    Collect maximum points in a matrix by satisfying given constraints
+    Count total possible combinations of N-digit numbers in a mobile keypad
+    Find Optimal Cost to Construct Binary Search Tree
+    Word Break Problem | Dynamic Programming
+    Word Break Problem | Using Trie Data Structure
+    Total possible solutions to linear equation of k variables
+    Wildcard Pattern Matching
+    Find Probability that a Person is Alive after Taking N steps on an Island
+    Calculate sum of all elements in a sub-matrix in constant time
+    Find Maximum Sum Submatrix in a given matrix
+    Find Maximum Sum Submatrix present in a given matrix
+    Find maximum sum of subsequence with no adjacent elements
+    Maximum Subarray Problem (Kadane’s algorithm)
+    Single-Source Shortest PathsBellman Ford Algorithm
+    All-Pairs Shortest PathsFloyd Warshall Algorithm
+    Pots of Gold Game using Dynamic Programming
+    Find minimum cuts needed for palindromic partition of a string
+    Maximum Length Snake Sequence
+    3-Partition Problem
+    Calculate size of the largest plus of 1’s in binary matrix
+    Check if given string is interleaving of two other given strings
+
 # Top 10 Object Oriented Design Principles
 
 1. **DRY (Don't repeat yourself)** — avoids duplication in code
